@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import sogeti.model.User;
 
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,14 +24,30 @@ public class RegisterProtocol {
     }
     @PostMapping("/register")
     public ModelAndView submitRegistration(User user) {
-        System.out.println(user.getId());
-        System.out.println(user.getName());
-        System.out.println(user.getSurname());
-        System.out.println(user.getMail());
-        System.out.println(user.getPassword());
+        StringBuffer query = new StringBuffer();
+        query.append("INSERT INTO user(Id, Surname, Name, Mail, Password, isDoctor) VALUES (");
+        query.append("'").append(user.getId()).append("',");
+        query.append("'").append(user.getName()).append("',");
+        query.append("'").append(user.getSurname()).append("',");
+        query.append("'").append(user.getMail()).append("',");
+        query.append("'").append(user.getPassword()).append("',");
+        query.append("'1');");
+        //sb.append("'").append(user.isDoctor()).append("');");
+
+
+
+        try {
+            Connection con = DatabaseConnection.connectDB();
+            PreparedStatement preparedStatement = con.prepareStatement(query.toString());
+            preparedStatement.execute();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl("/");
         return new ModelAndView(redirectView);
     }
+
 }
