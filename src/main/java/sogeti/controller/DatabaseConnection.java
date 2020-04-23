@@ -1,4 +1,4 @@
-package controller;
+package sogeti.controller;
 
 import java.sql.*;
 
