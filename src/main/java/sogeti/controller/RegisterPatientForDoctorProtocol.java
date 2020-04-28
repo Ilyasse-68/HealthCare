@@ -16,17 +16,17 @@ import sogeti.model.Patient;
 import sogeti.model.User;
 
 @Controller
-public class RegisterPatientProtocol {
+public class RegisterPatientForDoctorProtocol {
 	
-	@GetMapping("/HealthCarePatientRegisterForm.html")
+	@GetMapping("/DoctorRegisterForPatientForm")
     public ModelAndView getPatientRegisterForm() {
 		String viewName = "patientRegisterForm";
 		Map<String, Object> model = new HashMap<String, Object>();
         model.put("User", new User());
-        return new ModelAndView("patientRegisterForm", model);
+        return new ModelAndView("DoctorRegisterForPatientForm", model);
     }
 	
-    @PostMapping("/HealthCarePatientRegisterForm.html")
+    @PostMapping("/DoctorRegisterForPatientForm")
     public ModelAndView submitRegistration(Patient patient) {
         StringBuffer query = new StringBuffer();
         query.append("INSERT INTO patient(id_patient, nom_patient, prenom_patient, age_patient, adresse_patient, cp_patient, ville_patient, mail_patient, telephone_patient, numCV_patient, nom_medtraitant, prenom_medtraitant, telephone_medtraitant, mail_medtraitant, adresse_medtraitant, cp_medtraitant, ville_medtraitant, nom_contacturgence, prenom_contacturgence, telephone_contacturgence, mail_contacturgence) VALUES (");

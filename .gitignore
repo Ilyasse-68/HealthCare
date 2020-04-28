@@ -33,3 +33,4 @@ build/
 ### Other ###
 *.cmd
 mvnw
+.DS_Store
