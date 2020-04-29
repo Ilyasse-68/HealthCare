@@ -10,6 +10,7 @@
 	</parent>
 	<groupId>sogeti</groupId>
 	<artifactId>HealthCare</artifactId>
+	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>HealthCare</name>
 	<description>HealthCare project </description>
