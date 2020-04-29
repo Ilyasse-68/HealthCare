@@ -1,9 +1,17 @@
 package sogeti.model;
 
-public class User {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Doctor {
+    @Id
+    @GeneratedValue
     private int id;
+
     private String name, surname, mail, password;
-    private boolean isDoctor;
+
 
     public int getId() {
         return id;
@@ -45,11 +53,5 @@ public class User {
         this.password = password;
     }
 
-    public boolean isDoctor() {
-        return isDoctor;
-    }
 
-    public void setDoctor(boolean doctor) {
-        isDoctor = doctor;
-    }
 }

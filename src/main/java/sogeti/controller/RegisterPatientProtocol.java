@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import sogeti.model.Patient;
-import sogeti.model.User;
+import sogeti.model.Doctor;
 
 @Controller
 public class RegisterPatientProtocol {
@@ -22,7 +22,7 @@ public class RegisterPatientProtocol {
     public ModelAndView getPatientRegisterForm() {
 		String viewName = "patientRegisterForm";
 		Map<String, Object> model = new HashMap<String, Object>();
-        model.put("User", new User());
+        model.put("Doctor", new Doctor());
         return new ModelAndView("patientRegisterForm", model);
     }
 	
