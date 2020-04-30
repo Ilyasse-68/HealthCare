@@ -82,6 +82,16 @@
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>3.6.0.1398</version>
 			</plugin>
+      			<plugin>
+        			<groupId>com.heroku.sdk</groupId>
+        			<artifactId>heroku-maven-plugin</artifactId>
+       				 <version>3.0.2</version>
+				<configuration>
+  					<processTypes>
+     						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* sogeti.HealthCareApplication</web>
+  					</processTypes>
+				</configuration>
+      			</plugin>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
